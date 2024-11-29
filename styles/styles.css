@@ -1,6 +1,6 @@
-#demo {
-    background: #2F3437 none no-repeat scroll -11px 0px;
+body  {
+    background: #2F3437;
     }
-    #demo {
-     padding: 50px 20px; 
-    }
+h1 {
+     color: white;
+}

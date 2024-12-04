@@ -1,1 +1,0 @@
-# ethanhoffman.github.io

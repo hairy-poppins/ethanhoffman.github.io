@@ -4,12 +4,3 @@ body  {
 h1 {
      color: white;
 }
-a {
-    color: white;
-}
-a:visited {
-    color: white
-}
-a:hover {
-    font-weight: bold;
-}

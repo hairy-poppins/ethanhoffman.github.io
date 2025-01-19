@@ -1,7 +1,7 @@
 function calc() {
-    let minutes = (parseInt(document.getElementById("400m").value) + parseInt(document.getElementById("800m").value) + parseInt(document.getElementById("1600m").value) + parseInt(document.getElementById("1200m").value)) * 60;
-    let seconds = parseInt(document.getElementById("400s").value) + parseInt(document.getElementById("800s").value) + parseInt(document.getElementById("1600s").value) + parseInt(document.getElementById("1200s").value);
+    let minutes = (parseFloat(document.getElementById("400m").value) + parseFloat(document.getElementById("800m").value) + parseFloat(document.getElementById("1600m").value) + parseFloat(document.getElementById("1200m").value)) * 60;
+    let seconds = parseFloat(document.getElementById("400s").value) + parseFloat(document.getElementById("800s").value) + parseFloat(document.getElementById("1600s").value) + parseFloat(document.getElementById("1200s").value);
 
     let totalSec = minutes + seconds;
-    document.getElementById("time").value = parseInt(totalSec/60) + ":" + (totalSec % 60);
+    document.getElementById("time").value = parseFloat(totalSec/60) + ":" + (totalSec % 60);
 }

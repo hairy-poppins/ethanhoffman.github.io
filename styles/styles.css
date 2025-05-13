@@ -57,3 +57,13 @@ a:hover {
 #submit:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
+
+.Button{
+    background:    #eeeeee;
+border-radius: 1000px;
+padding:       20px 45px;
+color:         #444444;
+display:       inline-block;
+font:          normal bold 26px/1 "Open Sans", sans-serif;
+text-align:    center;
+}

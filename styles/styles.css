@@ -67,4 +67,7 @@ color:         #444444;
 display:       inline-block;
 font:          normal bold 26px/1 "Open Sans", sans-serif;
 text-align:    center;
+text-decoration: none;
+    cursor: pointer;
+
 }

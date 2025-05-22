@@ -1,9 +1,9 @@
 body  {
     background: #333;
     color: white;
-    
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    content
     }
 main {
     max-width: 900px; 
@@ -14,10 +14,6 @@ h1 {
     text-align: center
 }
 
-
-.Class {
-    display: flex;
-}
 
 
 
@@ -56,7 +52,8 @@ text-decoration: none;
 
 /****************************************************************/
 .topnav {
-    background-color: #333;
+    background-color: #222222;
+    margin: -8px;
     overflow: hidden;
   }
   
@@ -64,7 +61,7 @@ text-decoration: none;
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 5%;
+    padding: 19px 5%;
     text-decoration: none;
     font-size: 17px;
   }

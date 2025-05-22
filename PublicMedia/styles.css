@@ -1,26 +1,19 @@
 body  {
     background: #333;
     color: white;
-    align-items: center;
-    width: 50%;
-    margin-left: 20%;
-    margin-right: 20%;
+    
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
     }
+main {
+    max-width: 900px; 
+    margin: 0 auto;
+}
 
 h1 {
     text-align: center
 }
 
-a {
-    color: white;
-}
-a:visited {
-    color: white
-}
-a:hover {
-    font-weight: bold;
-}
 
 .Class {
     display: flex;
@@ -44,6 +37,21 @@ text-decoration: none;
     background: #dddddd;
     color: #222222;
 }
+.people {
+    display: flex;
+}
+.person {
+    background-color: #f2f2f2;
+    color: #222222;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    
+}
+.person img {
+    border-radius: 10px;
+}
 
 
 /****************************************************************/
@@ -56,7 +64,7 @@ text-decoration: none;
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 14px 23px;
+    padding: 14px 5%;
     text-decoration: none;
     font-size: 17px;
   }
@@ -70,3 +78,5 @@ text-decoration: none;
     background-color: #429bf5;
     color: white;
   }
+
+

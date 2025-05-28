@@ -1,20 +1,30 @@
 body  {
-    background: #333;
-    color: white;
+    background: #2196f3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f44336, #2196f3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f44336, #2196f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    content
-    }
-main {
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+ main {
+    background: #eeeeee;
     max-width: 900px; 
-    margin: 0 auto;
+    border-radius: 30px;
+    margin: 50px auto 20px;
+    padding: 10px
+    
 }
 
 h1 {
     text-align: center
 }
 
-
+h3 { 
+    text-align: center;
+    line-height: 33px;
+    word-spacing: 2px;
+}
 
 
 .Button{
@@ -38,7 +48,7 @@ text-decoration: none;
     ;
 }
 .person {
-    background-color: #f2f2f2;
+    background-color: #9aa6f5;
     color: #222222;
     margin: 15px;
     padding: 15px;

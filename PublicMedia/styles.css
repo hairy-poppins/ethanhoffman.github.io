@@ -35,6 +35,7 @@ text-decoration: none;
 }
 .people {
     display: flex;
+    ;
 }
 .person {
     background-color: #f2f2f2;
@@ -47,6 +48,7 @@ text-decoration: none;
 }
 .person img {
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 

@@ -30,10 +30,12 @@ body  {
 h1 {
     text-align: center;
     font-size: 50px;
-    
+        margin: 30px auto -30px;
+
 }
 h2 {
     text-align: center;
+
 }
 h3 { 
     text-align: center;
@@ -44,8 +46,12 @@ h3 {
 p {
     font-size: 16px;
     line-height: 22px;
-    text-indent: 2em;
-    margin: 5px;
+    margin: 
+}
+
+p.text {
+  text-indent: 2em;
+  margin: 5px;
 }
 
 ul {
@@ -71,7 +77,7 @@ cursor: pointer;
 }
 .people {
     display: flex;
-    
+    flex-wrap: wrap;
 }
 .person {
     background-color: #9aa6f5;
@@ -82,7 +88,6 @@ cursor: pointer;
     text-align: center;
     flex: 1 1 200px;
     max-width: 250px;
-    
     
 }
 .person img {
@@ -103,9 +108,9 @@ background-color: #eeeeee;
 
 
 .CTA {
-    background-color: white;
+    background-color: #9aa6f5;
     border-radius: 20px;
-    padding: 10px;
+    padding: 25px;
     text-align: center;
     margin: 25px 20%;
 }

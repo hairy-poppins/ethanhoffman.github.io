@@ -30,12 +30,10 @@ body  {
 h1 {
     text-align: center;
     font-size: 50px;
-        margin: 30px auto -30px;
 
 }
 h2 {
     text-align: center;
-
 }
 h3 { 
     text-align: center;
@@ -46,7 +44,7 @@ h3 {
 p {
     font-size: 16px;
     line-height: 22px;
-    margin: 
+    margin: 5px;
 }
 
 p.text {

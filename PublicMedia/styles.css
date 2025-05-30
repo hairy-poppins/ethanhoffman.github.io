@@ -36,6 +36,8 @@ h1.title {
   font-size: 7vw;
   text-align: left;
   margin: 2vh;
+  color: white;
+  font-weight: bold;
 }
 
 h2 {

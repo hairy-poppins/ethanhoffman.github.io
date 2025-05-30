@@ -134,7 +134,8 @@ background-color: #eeeeee;
 }
 
 .topnav a.active {
-  background-color: #429bf5;
+  background-color: #2196f3;
+  /* old color: 429bf5 */
   color: white;
 }
 

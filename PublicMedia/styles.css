@@ -10,8 +10,8 @@ body  {
 
     margin: 0;
     padding: 0;
-    
 }
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
@@ -128,6 +128,13 @@ background-color: #eeeeee;
     margin: 25px 20%;
 }
 
+.fullscreen-image {
+  background-image: url("/images/CapitolBuilding.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /****************************************************************/
 .topnav {
@@ -152,7 +159,7 @@ background-color: #eeeeee;
 
 .topnav a.active {
   background-color: #2196f3;
-  /* old color: 429bf5 */
+  /* old background color: 429bf5 */
   color: white;
 }
 

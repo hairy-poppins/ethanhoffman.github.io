@@ -32,6 +32,12 @@ h1 {
     font-size: 50px;
 
 }
+h1.title {
+  font-size: 7vw;
+  text-align: left;
+  margin: 2vh;
+}
+
 h2 {
     text-align: center;
 }
@@ -112,6 +118,8 @@ background-color: #eeeeee;
     text-align: center;
     margin: 25px 20%;
 }
+
+
 /****************************************************************/
 .topnav {
   display: flex;

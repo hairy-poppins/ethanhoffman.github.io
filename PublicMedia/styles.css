@@ -124,16 +124,6 @@ cursor: pointer;
   background-color: black;
 }
 
-footer {
-background-color: #eeeeee;
-  color: black;
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  line-height: 23px;
-}
-
-
 .CTA {
     background-color: #9aa6f5;
     border-radius: 20px;
@@ -149,6 +139,37 @@ background-color: #eeeeee;
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* OLD FOOTER CSS
+footer {
+  background-color: #eeeeee;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 23px;
+} */
+footer {
+  text-align: center;
+  padding: 1.5vh;
+  font-size: 1em;
+  line-height: 2.5vh;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #222222;
+  color: #eeeeee;
+  align-items: center;
+  justify-content: center;
+}
+footer div {
+  width: 30%;
+}
+footer a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+
 
 /****************************************************************/
 .topnav {

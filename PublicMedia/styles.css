@@ -169,6 +169,16 @@ footer a {
   color: #eeeeee;
 }
 
+.inline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inline-container img {
+  margin: 1.5vw;
+  width: 40%;
+}
+
 
 
 /****************************************************************/

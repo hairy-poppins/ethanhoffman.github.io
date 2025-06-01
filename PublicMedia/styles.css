@@ -173,6 +173,17 @@ figcaption {
   font-size: 15px;
    font-style: italic;
 }
+.inline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inline-container img {
+  margin: 1.5vw;
+  width: 40%;
+}
+
+
 
 /****************************************************************/
 .topnav {

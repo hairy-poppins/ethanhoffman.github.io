@@ -18,6 +18,11 @@ function closeImage() {
     const fullPage = document.querySelector('#fullpage');
     fullPage.style.display= 'none';
     enableScroll();
+
+    const lettersSection = document.querySelector('#letters');
+    
+      lettersSection.scrollIntoView();
+    
 }
 
 // DISABLE AND ENABLE SCROLLING
@@ -53,6 +58,7 @@ function disableScroll() {
   window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
   window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
   window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+   document.body.style.overflow = 'hidden';
 }
 
 // call this to Enable
@@ -61,4 +67,5 @@ function enableScroll() {
   window.removeEventListener(wheelEvent, preventDefault, wheelOpt); 
   window.removeEventListener('touchmove', preventDefault, wheelOpt);
   window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+  document.body.style.overflow = '';
 }

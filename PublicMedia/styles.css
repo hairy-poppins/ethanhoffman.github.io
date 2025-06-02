@@ -169,10 +169,6 @@ footer a {
   color: #eeeeee;
 }
 
-figcaption {
-  font-size: 15px;
-   font-style: italic;
-}
 .inline-container {
   display: flex;
   justify-content: center;
@@ -183,9 +179,19 @@ figcaption {
   width: 40%;
 }
 
+figure {
+  align-items: center; 
+  text-align: center; 
+  width: 75%; 
+  margin: 20px auto;
+}
 figcaption {
   font-size: 15px;
-   font-style: italic;
+  font-style: italic;
+}
+figure img {
+  width: 100%;
+  margin: auto;
 }
 
 /****************************************************************/

@@ -67,8 +67,14 @@ p.text {
   margin: 5px;
 }
 
+p.sources {
+  margin-left: 2.5em;
+  text-indent: -2.5em;
+  line-height: 2em;
+}
+
 ul {
-       text-align: left;   
+  text-align: left;   
 }
 
 .Button{

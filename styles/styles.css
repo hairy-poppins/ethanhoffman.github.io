@@ -78,7 +78,7 @@ a:hover {
     max-width: 700px;
     display: flex;
     overflow: hidden;
-   height: 300px;
+   height: fit-content;
 }
 
 .work h2, .work p {

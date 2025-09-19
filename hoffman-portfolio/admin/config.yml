@@ -1,12 +1,6 @@
 # config.yml
 
 backend:
-  name: git-gateway
+  name: github
+  repo: hairy-poppins/ethanhoffman.github.io # Path to your GitHub repo
   branch: main # Branch to update (optional; defaults to master)
-media_folder: 'assets/uploads'
-collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: '_posts/'
-    fields:
-      - { name: Title }

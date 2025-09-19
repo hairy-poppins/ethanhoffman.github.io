@@ -5,3 +5,17 @@ backend:
   repo: hairy-poppins/ethanhoffman.github.io # Path to your GitHub repo
   branch: main # Branch to update (optional; defaults to master)
   auth_endpoint: https://ethanhoffman.me/.netlify/functions/auth # Path to your auth endpoint
+
+
+media_folder: "assets/uploads"       # Where uploaded media files go
+public_folder: "/assets/uploads"      # Public URL for media
+
+collections:
+  - name: "blog"                      # Unique identifier
+    label: "Blog Posts"               # Display name in CMS
+    folder: "_posts"                  # Folder containing posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}

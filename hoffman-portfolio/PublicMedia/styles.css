@@ -1,0 +1,244 @@
+body  {
+    background: #2196f3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f44336, #2196f3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f44336, #2196f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    /*font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    margin: 0;
+    padding: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+ main {
+    background: white;
+    max-width: 900px; 
+    border-radius: 30px;
+    margin: 50px auto 50px;
+    padding: 10px 60px 50px;
+    flex: 1;
+  flex-direction: column;
+    display: flex;
+
+    
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Bona Nova SC", serif;
+  font-weight: 700;
+  font-style: normal;
+
+}
+h1.title {
+  font-size: 7vw;
+  text-align: left;
+  margin-top: -2vh;
+  margin-bottom: -2vh;
+  color: white;
+}
+
+h2 {
+    text-align: center;
+}
+h3 { 
+    text-align: center;
+    line-height: 33px;
+    word-spacing: 2px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 5px;
+}
+
+p.text {
+  text-indent: 2em;
+  margin: 5px;
+}
+
+p.sources {
+  margin-left: 2.5em;
+  text-indent: -2.5em;
+  line-height: 2em;
+}
+
+ul {
+  text-align: left;   
+}
+
+.Button{
+    background:   #d10f32;
+border-radius: 1000px;
+padding:       20px 45px;
+color: white;
+display:       inline-block;
+text-align:    center;
+text-decoration: none;
+cursor: pointer;
+ transition: box-shadow 0.3s ease, background 0.3s ease;
+
+}
+.Button:hover {
+    background: #610012;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.people {
+    display: flex;
+    flex-wrap: wrap;
+}
+.person {
+    background-color: #9aa6f5;
+    color: #222222;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    flex: 1 1 200px;
+    max-width: 250px;
+    
+}
+.person img {
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.person img:hover {
+    opacity: 90%;
+}
+#fullpage {
+  display: none;
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}
+
+.CTA {
+    background-color: #9aa6f5;
+    border-radius: 20px;
+    padding: 25px;
+    text-align: center;
+    margin: 25px 20%;
+}
+
+.fullscreen-image {
+  background-image: url("/images/CapitolBuilding.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* OLD FOOTER CSS
+footer {
+  background-color: #eeeeee;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  line-height: 23px;
+} */
+footer {
+  text-align: center;
+  padding: 1.5vh;
+  font-size: 1em;
+  line-height: 2.5vh;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #222222;
+  color: #eeeeee;
+  align-items: center;
+  justify-content: center;
+}
+footer div {
+  width: 30%;
+}
+footer a {
+  text-decoration: none;
+  color: #eeeeee;
+}
+
+.inline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inline-container img {
+  margin: 1.5vw;
+  width: 40%;
+}
+
+figure {
+  align-items: center; 
+  text-align: center; 
+  width: 75%; 
+  margin: 20px auto;
+}
+figcaption {
+  font-size: 15px;
+  font-style: italic;
+}
+figure img {
+  width: 100%;
+  margin: auto;
+}
+
+/****************************************************************/
+.topnav {
+  display: flex;
+  background-color: #222222;
+  overflow: hidden;
+}
+
+.topnav a {
+  color: #f2f2f2;
+  text-align: center;
+  padding: 19px 3%;
+  text-decoration: none;
+  font-size: 17px;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #2196f3;
+  /* old background color: 429bf5 */
+  color: white;
+}
+
+.topnav a.title {
+  display: flex;
+  align-items: center;
+  background-color: #d10f32;
+  color: white;
+  padding: 10px 20px;
+}
+
+.topnav a.title img {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
+

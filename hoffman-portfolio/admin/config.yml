@@ -4,3 +4,4 @@ backend:
   name: github
   repo: hairy-poppins/ethanhoffman.github.io # Path to your GitHub repo
   branch: main # Branch to update (optional; defaults to master)
+  auth_endpoint: https://ethanhoffman.me/.netlify/functions/auth # Path to your auth endpoint

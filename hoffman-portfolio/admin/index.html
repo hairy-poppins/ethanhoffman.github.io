@@ -1,15 +1,65 @@
-<!-- admin/index.html -->
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
-    <!-- Include the identity widget -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" type="text/javascript"></script>
-  </head>
-  <body>
-    <!-- Include the script that builds the page and powers Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/@decap/cms@^2.0.0/dist/cms.js"></script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f7f7f7;
+    }
+    #login-btn {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #63E6BE;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="login-btn">Login with Auth0</button>
+
+  <script>
+    const AUTH0_DOMAIN = "YOUR_AUTH0_DOMAIN"; // e.g., myapp.us.auth0.com
+    const CLIENT_ID = "YOUR_CLIENT_ID";
+    const REDIRECT_URI = window.location.origin + "/admin/index.html";
+
+    document.getElementById("login-btn").addEventListener("click", () => {
+      const authUrl = `https://${AUTH0_DOMAIN}/authorize?` +
+        `response_type=token&` +
+        `client_id=${CLIENT_ID}&` +
+        `redirect_uri=${encodeURIComponent(REDIRECT_URI)}&` +
+        `scope=openid profile email`;
+      window.location.href = authUrl;
+    });
+
+    // Handle token after redirect
+    window.addEventListener("load", () => {
+      if (window.location.hash.includes("access_token")) {
+        const params = new URLSearchParams(window.location.hash.slice(1));
+        const token = params.get("access_token");
+
+        // Initialize CMS with token
+        window.CMS.init({
+          backend: {
+            name: "auth-proxy",  // your Decap CMS Auth Proxy backend
+            token: token,
+          }
+        });
+      }
+    });
+  </script>
+</body>
 </html>

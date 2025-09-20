@@ -8,7 +8,7 @@ public_folder: "assets/uploads"     # Public URL for media
 collections:
   - name: "galleries"
     label: "Photo Galleries"
-    folder: "hoffman-portfolio/galleries"              # Folder to store gallery entries
+    folder: "galleries"              # Folder to store gallery entries
     create: true
     slug: "{{slug}}"
     fields:

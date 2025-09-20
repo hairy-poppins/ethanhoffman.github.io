@@ -7,6 +7,8 @@
 
   <!-- Decap CMS -->
   <script src="https://unpkg.com/@decap/cms@^2.0.0/dist/cms.js"></script>
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
     body {
@@ -32,34 +34,27 @@
   <button id="login-btn">Login with Netlify Identity</button>
 
   <script>
-    // Wait for Netlify Identity widget to load
+    // Initialize Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          document.getElementById("login-btn").style.display = "block";
-        } else {
+        if (user) {
           initCMS(user.token.access_token);
         }
       });
+
+      window.netlifyIdentity.on("login", user => {
+        initCMS(user.token.access_token);
+        window.netlifyIdentity.close();
+      });
     }
 
-    // Show login modal when button clicked
+    // Show login modal
     document.getElementById("login-btn").addEventListener("click", () => {
       if (window.netlifyIdentity) {
         window.netlifyIdentity.open("login");
       }
     });
 
-    // Initialize CMS after login
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("login", user => {
-        const token = user.token.access_token;
-        initCMS(token);
-        window.netlifyIdentity.close();
-      });
-    }
-
-    // Function to initialize Decap CMS
     function initCMS(token) {
       window.CMS.init({
         backend: {

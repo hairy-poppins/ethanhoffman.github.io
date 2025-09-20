@@ -13,10 +13,7 @@
   <style>
     body {
       font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      margin: 0;
       background: #f7f7f7;
     }
     #login-btn {
@@ -27,17 +24,45 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   </style>
 </head>
 <body>
   <button id="login-btn">Login with Netlify Identity</button>
 
+  <!-- Container for CMS UI -->
+  <div id="nc-root"></div>
+
   <script>
     window.addEventListener("load", () => {
       if (!window.netlifyIdentity) {
         console.error("Netlify Identity not loaded. Make sure Identity is enabled on Netlify.");
         return;
+      }
+
+      const loginBtn = document.getElementById("login-btn");
+
+      function initCMS(token) {
+        if (!window.CMS) {
+          console.error("Decap CMS not loaded");
+          return;
+        }
+
+        // Initialize CMS in the #nc-root container
+        window.CMS.init({
+          backend: {
+            name: "git-gateway",
+            branch: "main",
+            token: token
+          },
+          load_config_file: true, // load /admin/config.yml
+        });
+
+        loginBtn.style.display = "none";
       }
 
       // Initialize Identity
@@ -50,27 +75,10 @@
         window.netlifyIdentity.close();
       });
 
-      // Show login modal when button clicked
-      const loginBtn = document.getElementById("login-btn");
+      // Show login modal
       loginBtn.addEventListener("click", () => {
         window.netlifyIdentity.open("login");
       });
-
-      function initCMS(token) {
-        if (!window.CMS) {
-          console.error("Decap CMS not loaded");
-          return;
-        }
-
-        window.CMS.init({
-          backend: {
-            name: "git-gateway",
-            branch: "main",
-            token: token
-          }
-        });
-        loginBtn.style.display = "none";
-      }
     });
   </script>
 </body>

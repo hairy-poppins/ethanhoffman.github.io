@@ -29,44 +29,47 @@
   </style>
 </head>
 <body>
-  <button id="login-btn">Login with Auth0</button>
+  <button id="login-btn">Login with Netlify Identity</button>
 
   <script>
-    // Auth0 configuration
-    const AUTH0_DOMAIN = "dev-k4p5ypz7ncud7k5r.us.auth0.com";
-    const CLIENT_ID = "olExTJYwW5GsJoe2OHXkKuGuS0f1HAKU";
-    const REDIRECT_URI = window.location.origin + "/admin/index.html";
-
-    // Redirect to Auth0 login when button clicked
-    document.getElementById("login-btn").addEventListener("click", () => {
-      const authUrl = `https://${AUTH0_DOMAIN}/authorize?` +
-        `response_type=token&` +
-        `client_id=${CLIENT_ID}&` +
-        `redirect_uri=${encodeURIComponent(REDIRECT_URI)}&` +
-        `scope=openid profile email`;
-      window.location.href = authUrl;
-    });
-
-    // Handle Auth0 redirect and initialize CMS
-    window.addEventListener("load", () => {
-      if (window.location.hash.includes("access_token")) {
-        const params = new URLSearchParams(window.location.hash.slice(1));
-        const token = params.get("access_token");
-
-        if (token) {
-          // Initialize Decap CMS with Auth Proxy backend
-          window.CMS.init({
-            backend: {
-              name: "auth-proxy", // your serverless Auth Proxy
-              token: token
-            }
-          });
-
-          // Remove token from URL for cleanliness
-          window.history.replaceState(null, null, window.location.pathname);
+    // Wait for Netlify Identity widget to load
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          document.getElementById("login-btn").style.display = "block";
+        } else {
+          initCMS(user.token.access_token);
         }
+      });
+    }
+
+    // Show login modal when button clicked
+    document.getElementById("login-btn").addEventListener("click", () => {
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.open("login");
       }
     });
+
+    // Initialize CMS after login
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("login", user => {
+        const token = user.token.access_token;
+        initCMS(token);
+        window.netlifyIdentity.close();
+      });
+    }
+
+    // Function to initialize Decap CMS
+    function initCMS(token) {
+      window.CMS.init({
+        backend: {
+          name: "git-gateway",
+          branch: "main",
+          token: token
+        }
+      });
+      document.getElementById("login-btn").style.display = "none";
+    }
   </script>
 </body>
 </html>

@@ -1,12 +1,9 @@
-# config.yml
-
 backend:
-  name: auth-proxy
-  auth_endpoint: "/.netlify/functions/auth-proxy"
-
+  name: git-gateway
+  branch: main    # branch to commit changes
 
 media_folder: "assets/uploads"       # Where uploaded media files go
-public_folder: "/assets/uploads"      # Public URL for media
+public_folder: "/assets/uploads"     # Public URL for media
 
 collections:
   - name: "galleries"
@@ -15,7 +12,16 @@ collections:
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Photos", name: "photos", widget: "list", field:
-          { label: "Image", name: "image", widget: "image" } }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Description"
+        name: "description"
+        widget: "text"
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        field:
+          label: "Image"
+          name: "image"
+          widget: "image"

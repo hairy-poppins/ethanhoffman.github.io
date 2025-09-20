@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main    # branch to commit changes
 
-media_folder: "assets/uploads"       # Where uploaded media files go
-public_folder: "/assets/uploads"     # Public URL for media
+media_folder: "hoffman-portfolio/assets/uploads"       # Where uploaded media files go
+public_folder: "hoffman-portfolio/assets/uploads"     # Public URL for media
 
 collections:
   - name: "galleries"
     label: "Photo Galleries"
-    folder: "galleries"              # Folder to store gallery entries
+    folder: "hoffman-portfolio/galleries"              # Folder to store gallery entries
     create: true
     slug: "{{slug}}"
     fields:

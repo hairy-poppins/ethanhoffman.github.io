@@ -8,30 +8,17 @@ media_folder: /assets
 public_folder: /assets
 
 collections:
-  - name: blog
-    label: Blog
-    label_singular: post
-    folder: assets
+  - name: galleries
+    label: Galleries
+    label_singular: gallery
+    folder: assets/galleries
     create: true
     filter: {field: visibleInCMS, value: true}
-    fields: [
-      {name: title, widget: string},
-      {name: description, widget: text},
-      {name: body, widget: markdown},
-      {name: visibleInCMS, widget: hidden, default: true}
-    ]
-
-  - name: pages
-    label: Pages
-    files: [
-      {name: home, label: Home, file: content/_index.md, fields: [
-        {name: title, widget: string},
-        {name: welcome, widget: text},
-        {name: body, widget: markdown},
-      ]},
-      {name: about, label: About, file: content/about.md, fields: [
-        {name: title, widget: string},
-        {name: author, widget: string},
-        {name: body, widget: markdown},
-      ]},
-    ]
+    fields:
+      - { name: title, widget: string }
+      - { name: description, widget: text }
+      - { name: photos, widget: list, fields: [
+          { name: image, widget: image },
+          { name: caption, widget: string }
+        ]}
+      - { name: visibleInCMS, widget: hidden, default: true }

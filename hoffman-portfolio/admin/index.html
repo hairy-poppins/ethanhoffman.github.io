@@ -32,12 +32,12 @@
   <button id="login-btn">Login with Auth0</button>
 
   <script>
-    
-  const AUTH0_DOMAIN = "dev-k4p5ypz7ncud7k5r.us.auth0.com";
-  const CLIENT_ID = "olExTJYwW5GsJoe2OHXkKuGuS0f1HAKU";
-    
-  const REDIRECT_URI = window.location.origin + "/admin/index.html";
+    // Auth0 configuration
+    const AUTH0_DOMAIN = "dev-k4p5ypz7ncud7k5r.us.auth0.com";
+    const CLIENT_ID = "olExTJYwW5GsJoe2OHXkKuGuS0f1HAKU";
+    const REDIRECT_URI = window.location.origin + "/admin/index.html";
 
+    // Redirect to Auth0 login when button clicked
     document.getElementById("login-btn").addEventListener("click", () => {
       const authUrl = `https://${AUTH0_DOMAIN}/authorize?` +
         `response_type=token&` +
@@ -47,19 +47,24 @@
       window.location.href = authUrl;
     });
 
-    // Handle token after redirect
+    // Handle Auth0 redirect and initialize CMS
     window.addEventListener("load", () => {
       if (window.location.hash.includes("access_token")) {
         const params = new URLSearchParams(window.location.hash.slice(1));
         const token = params.get("access_token");
 
-        // Initialize CMS with token
-        window.CMS.init({
-          backend: {
-            name: "auth-proxy",  // your Decap CMS Auth Proxy backend
-            token: token,
-          }
-        });
+        if (token) {
+          // Initialize Decap CMS with Auth Proxy backend
+          window.CMS.init({
+            backend: {
+              name: "auth-proxy", // your serverless Auth Proxy
+              token: token
+            }
+          });
+
+          // Remove token from URL for cleanliness
+          window.history.replaceState(null, null, window.location.pathname);
+        }
       }
     });
   </script>

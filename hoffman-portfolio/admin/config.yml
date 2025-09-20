@@ -1,9 +1,8 @@
 # config.yml
 
 backend:
-  name: github
-  repo: hairy-poppins/ethanhoffman.github.io # Path to your GitHub repo
-  branch: main # Branch to update (optional; defaults to master)
+  name: auth-proxy
+  auth_endpoint: "/.netlify/functions/auth-proxy"
 
 
 media_folder: "assets/uploads"       # Where uploaded media files go

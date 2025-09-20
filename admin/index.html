@@ -1,84 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Admin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Site CMS</title>
   <!-- Decap CMS -->
   <script src="https://unpkg.com/@decap/cms@^2.0.0/dist/cms.js"></script>
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- DecapBridge (Auth Proxy) -->
+  <script>
 
+  </script>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      background: #f7f7f7;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
     }
-    #login-btn {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background: #63E6BE;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
+    .login-container {
+      text-align: center;
+    }
+    h1 {
+      color: #333;
+    }
+    button {
+      padding: 0.5em 1em;
+      font-size: 1em;
       cursor: pointer;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      border: none;
+      border-radius: 5px;
+      background-color: #63E6BE;
+      color: white;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #4BB89F;
     }
   </style>
 </head>
 <body>
-  <button id="login-btn">Login with Netlify Identity</button>
-
-  <!-- Container for CMS UI -->
-  <div id="nc-root"></div>
+  <div class="login-container">
+    <h1>Welcome to My CMS</h1>
+    <button id="login-btn">Login to Decap CMS</button>
+  </div>
 
   <script>
-    window.addEventListener("load", () => {
-      if (!window.netlifyIdentity) {
-        console.error("Netlify Identity not loaded. Make sure Identity is enabled on Netlify.");
-        return;
+    const loginBtn = document.getElementById('login-btn');
+
+    loginBtn.addEventListener('click', async () => {
+      try {
+        // Redirect to DecapBridge login
+        await window.DECAP_CMS.auth.loginWithProxy(window.DECAP_BRIDGE_CONFIG);
+        // Once logged in, load the CMS interface
+        CMS.init();
+      } catch (err) {
+        console.error('Login failed:', err);
+        alert('Failed to log in. Check console for details.');
       }
-
-      const loginBtn = document.getElementById("login-btn");
-
-      function initCMS(token) {
-        if (!window.CMS) {
-          console.error("Decap CMS not loaded");
-          return;
-        }
-
-        // Initialize CMS in the #nc-root container
-        window.CMS.init({
-          backend: {
-            name: "git-gateway",
-            branch: "main",
-            token: token
-          },
-          load_config_file: true, // load /admin/config.yml
-        });
-
-        loginBtn.style.display = "none";
-      }
-
-      // Initialize Identity
-      window.netlifyIdentity.on("init", user => {
-        if (user) initCMS(user.token.access_token);
-      });
-
-      window.netlifyIdentity.on("login", user => {
-        initCMS(user.token.access_token);
-        window.netlifyIdentity.close();
-      });
-
-      // Show login modal
-      loginBtn.addEventListener("click", () => {
-        window.netlifyIdentity.open("login");
-      });
     });
   </script>
 </body>

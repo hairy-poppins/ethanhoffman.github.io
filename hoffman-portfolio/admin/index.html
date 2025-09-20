@@ -8,8 +8,7 @@
   <!-- Decap CMS -->
   <script src="https://unpkg.com/@decap/cms@^2.0.0/dist/cms.js"></script>
   <!-- Netlify Identity Widget -->
-  
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <style>
     body {
@@ -35,37 +34,44 @@
   <button id="login-btn">Login with Netlify Identity</button>
 
   <script>
-    // Initialize Identity
-    if (window.netlifyIdentity) {
+    window.addEventListener("load", () => {
+      if (!window.netlifyIdentity) {
+        console.error("Netlify Identity not loaded. Make sure Identity is enabled on Netlify.");
+        return;
+      }
+
+      // Initialize Identity
       window.netlifyIdentity.on("init", user => {
-        if (user) {
-          initCMS(user.token.access_token);
-        }
+        if (user) initCMS(user.token.access_token);
       });
 
       window.netlifyIdentity.on("login", user => {
         initCMS(user.token.access_token);
         window.netlifyIdentity.close();
       });
-    }
 
-    // Show login modal
-    document.getElementById("login-btn").addEventListener("click", () => {
-      if (window.netlifyIdentity) {
+      // Show login modal when button clicked
+      const loginBtn = document.getElementById("login-btn");
+      loginBtn.addEventListener("click", () => {
         window.netlifyIdentity.open("login");
+      });
+
+      function initCMS(token) {
+        if (!window.CMS) {
+          console.error("Decap CMS not loaded");
+          return;
+        }
+
+        window.CMS.init({
+          backend: {
+            name: "git-gateway",
+            branch: "main",
+            token: token
+          }
+        });
+        loginBtn.style.display = "none";
       }
     });
-
-    function initCMS(token) {
-      window.CMS.init({
-        backend: {
-          name: "git-gateway",
-          branch: "main",
-          token: token
-        }
-      });
-      document.getElementById("login-btn").style.display = "none";
-    }
   </script>
 </body>
 </html>

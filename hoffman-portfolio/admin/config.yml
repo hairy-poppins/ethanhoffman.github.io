@@ -9,11 +9,13 @@ media_folder: "assets/uploads"       # Where uploaded media files go
 public_folder: "/assets/uploads"      # Public URL for media
 
 collections:
-  - name: "blog"                      # Unique identifier
-    label: "Blog Posts"               # Display name in CMS
-    folder: "_posts"                  # Folder containing posts
+  - name: "galleries"
+    label: "Photo Galleries"
+    folder: "galleries"              # Folder to store gallery entries
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Photos", name: "photos", widget: "list", field:
+          { label: "Image", name: "image", widget: "image" } }

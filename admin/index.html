@@ -1,66 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Site CMS</title>
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/@decap/cms@^2.0.0/dist/cms.js"></script>
-  <!-- DecapBridge (Auth Proxy) -->
-  <script>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Manager | Git-based CMS</title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <meta name="robots" content="noindex">
 
-  </script>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #f5f5f5;
-    }
-    .login-container {
-      text-align: center;
-    }
-    h1 {
-      color: #333;
-    }
-    button {
-      padding: 0.5em 1em;
-      font-size: 1em;
-      cursor: pointer;
-      border: none;
-      border-radius: 5px;
-      background-color: #63E6BE;
-      color: white;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: #4BB89F;
-    }
-  </style>
-</head>
-<body>
-  <div class="login-container">
-    <h1>Welcome to My CMS</h1>
-    <button id="login-btn">Login to Decap CMS</button>
-  </div>
-
-  <script>
-    const loginBtn = document.getElementById('login-btn');
-
-    loginBtn.addEventListener('click', async () => {
-      try {
-        // Redirect to DecapBridge login
-        await window.DECAP_CMS.auth.loginWithProxy(window.DECAP_BRIDGE_CONFIG);
-        // Once logged in, load the CMS interface
-        CMS.init();
-      } catch (err) {
-        console.error('Login failed:', err);
-        alert('Failed to log in. Check console for details.');
-      }
-    });
-  </script>
-</body>
+    <!-- Enable Netlify Identity on this page. -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body>
+    <!-- Build the page and power Netlify CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
 </html>

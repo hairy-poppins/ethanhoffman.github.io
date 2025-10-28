@@ -1,24 +1,20 @@
-local_backend: true
-
 backend:
   name: git-gateway
   branch: main
 
-media_folder: /assets
-public_folder: /assets
+media_folder: "images/photography"
+public_folder: "/images/photography"
 
 collections:
-  - name: galleries
-    label: Galleries
-    label_singular: gallery
-    folder: assets/galleries
+  - name: "photos"
+    label: "Photography"
+    folder: "_photos"
     create: true
-    filter: {field: visibleInCMS, value: true}
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: title, widget: string }
-      - { name: description, widget: text }
-      - { name: photos, widget: list, fields: [
-          { name: image, widget: image },
-          { name: caption, widget: string }
-        ]}
-      - { name: visibleInCMS, widget: hidden, default: true }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "text", required: false}
+      - {label: "Photo", name: "image", widget: "image"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Category", name: "category", widget: "select", options: ["Landscape", "Portrait", "Street", "Nature", "Other"], required: false}
+      - {label: "Featured", name: "featured", widget: "boolean", default: false, required: false}

@@ -28,8 +28,8 @@ body  {
 .Right {
     margin-left: 400px; /* same as sidebar width */
   padding: 20px;
-  height: 100vh;
-  overflow-y: auto;
+  height: auto; /* Changed from 100vh */
+  overflow-y: visible; /* Changed from auto */
   flex: 1;
   
   
@@ -47,6 +47,11 @@ p {
 h1 {
     
     font-size: 45px;
+}
+
+/* Larger h2 for My Work heading */
+h2 {
+    font-size: 24px;
 }
 
 a {
@@ -74,11 +79,12 @@ a:hover {
 .work {
     background: white;
     border-radius: 20px;
-    margin: 50px;
+    margin: 50px auto; /* Added auto for centering */
     max-width: 700px;
+    width: 100%; /* Added for responsiveness */
     display: flex;
     overflow: hidden;
-   height: fit-content;
+    height: fit-content;
 }
 
 .work h2, .work p {
@@ -136,10 +142,10 @@ a:hover {
 }
 
 .Button{
-    background:    #eeeeee;
+    background:    #63E6BE;
 border-radius: 1000px;
 padding:       20px 45px;
-color: #444444 !important;
+color: #ffffff !important;
 display:       inline-block;
 font:          normal bold 26px/1 "Open Sans", sans-serif;
 text-align:    center;
@@ -148,13 +154,220 @@ text-decoration: none;
 
 }
 .Button:hover {
-    background: #dddddd;
-    color: #222222;
+    background: #57caa8;
+    color: #ffffff !important;
 }
 
 .MyWorks {
-    overflow: visible;
+    overflow: visible; /* Keep as visible to prevent scrollbar */
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 100%; /* Added for responsiveness */
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 1200px) {
+    .Left {
+        width: 300px;
+        left: 40px;
+    }
+    
+    .Right {
+        margin-left: 300px;
+    }
+    
+    .Contact {
+        left: 60px;
+    }
+    
+    h2 {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    body {
+        margin-left: 5%;
+        margin-right: 5%;
+        flex-direction: column;
+    }
+    
+    .Left {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        text-align: center;
+    }
+    
+    .Right {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .Contact {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .work {
+        flex-direction: column;
+        margin: 30px auto;
+    }
+    
+    .work img {
+        width: 100%;
+        max-height: 300px;
+    }
+    
+    .description {
+        width: 100%;
+    }
+    
+    h1 {
+        font-size: 36px;
+    }
+    
+    h2 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+    
+    p {
+        font-size: 16px;
+    }
+    
+    .work {
+        margin: 20px auto;
+        border-radius: 15px;
+    }
+    
+    .work p {
+        font-size: 16px;
+    }
+    
+    .description {
+        padding: 15px;
+    }
+    
+    .Button {
+        padding: 15px 30px;
+        font-size: 20px;
+    }
+    
+    .socials i {
+        font-size: 24px;
+    }
+}
+
+/* Photography Gallery Styles */
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    background: #1e293b;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.02);
+}
+
+.photo-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.photo-overlay h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.photo-overlay p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .photo-item {
+        aspect-ratio: 16/9;
+    }
+    
+    .photo-overlay {
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    }
 }

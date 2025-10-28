@@ -13,7 +13,7 @@ title: Home
         <div class="work">
             <img src="images\PublicMediaSS.PNG">
             <div class="description">
-                <h2> Broadcast for All</h2>
+                <h2> Broadcast for Allv</h2>
                 <p> Public Media Advocacy Campaign Website built for my AP US Government and Politics Final Project.</p>
                 <a href="PublicMedia/" class="Button">
                     Click Here

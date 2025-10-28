@@ -151,3 +151,10 @@ text-decoration: none;
     background: #dddddd;
     color: #222222;
 }
+
+.MyWorks {
+    overflow: visible;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}

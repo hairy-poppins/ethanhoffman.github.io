@@ -1,26 +1,23 @@
-
 ---
 layout: default
 title: Photography
 ---
 
-<div class="Right">
-    <h2 style="text-align: center;">My Photography</h2>
-    
-    <div class="photo-gallery">
-        {% assign sorted_photos = site.photos | sort: 'date' | reverse %}
-        {% for photo in sorted_photos %}
-        <div class="photo-item">
-            <a href="{{ photo.url }}" class="photo-link">
-                <img src="{{ photo.image }}" alt="{{ photo.title }}">
-                <div class="photo-overlay">
-                    <h3>{{ photo.title }}</h3>
-                    {% if photo.description %}
-                    <p>{{ photo.description }}</p>
-                    {% endif %}
-                </div>
-            </a>
-        </div>
-        {% endfor %}
+<h2 style="text-align: center;">My Photography</h2>
+
+<div class="photo-gallery">
+    {% assign sorted_photos = site.photos | sort: 'date' | reverse %}
+    {% for photo in sorted_photos %}
+    <div class="photo-item">
+        <a href="{{ photo.url }}" class="photo-link">
+            <img src="{{ photo.image }}" alt="{{ photo.title }}">
+            <div class="photo-overlay">
+                <h3>{{ photo.title }}</h3>
+                {% if photo.description %}
+                <p>{{ photo.description }}</p>
+                {% endif %}
+            </div>
+        </a>
     </div>
+    {% endfor %}
 </div>

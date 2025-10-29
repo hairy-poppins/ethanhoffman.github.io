@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - Photography</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+        .photo-detail-body {
+            margin: 0;
+            padding: 0;
+            background: #0f172aff;
+            color: white;
+            font-family: 'Inter', monospace;
+        }
+
+        .photo-nav {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .photo-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .photo-detail h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 48px;
+        }
+
+        .photo-detail-image {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-detail-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-description {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .photo-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 16px;
+            opacity: 0.8;
+            flex-wrap: wrap;
+        }
+
+        .category {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .photo-detail h1 {
+                font-size: 32px;
+            }
+
+            .photo-detail {
+                padding: 40px 15px;
+            }
+
+            .photo-nav {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="photo-detail-body">
+    
+    <nav class="photo-nav">
+        <a href="/photography.html" class="back-link">← Back to Gallery</a>
+    </nav>
+
+    <div class="photo-detail">
+        <h1>{{ page.title }}</h1>
+        
+        <div class="photo-detail-image">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+        </div>
+        
+        {% if page.description %}
+        <div class="photo-description">
+            <p>{{ page.description }}</p>
+        </div>
+        {% endif %}
+        
+        <div class="photo-meta">
+            {% if page.category %}
+            <span class="category">{{ page.category }}</span>
+            {% endif %}
+            <span class="date">{{ page.date | date: "%B %d, %Y" }}</span>
+        </div>
+    </div>
+
+</body>
+</html>

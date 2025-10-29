@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Photography
+layout: photography
+title: My Photography
 ---
 
 <h2 style="text-align: center;">My Photography</h2>
@@ -9,8 +9,8 @@ title: Photography
     {% assign sorted_photos = site.photos | sort: 'date' | reverse %}
     {% for photo in sorted_photos %}
     <div class="photo-item">
-        <a href="{{ photo.url }}" class="photo-link">
-            <img src="{{ photo.image }}" alt="{{ photo.title }}">
+        <a href="{{ photo.url | relative_url }}" class="photo-link">
+            <img src="{{ photo.image | relative_url }}" alt="{{ photo.title }}">
             <div class="photo-overlay">
                 <h3>{{ photo.title }}</h3>
                 {% if photo.description %}

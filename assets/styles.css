@@ -371,3 +371,141 @@ text-decoration: none;
         background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
     }
 }
+
+/* Photography Page Specific Styles */
+
+.photography-body {
+    margin: 0;
+    padding: 0;
+    background: #0f172aff;
+    color: white;
+}
+
+.photo-nav {
+    background: rgba(15, 23, 42, 0.95);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-home {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.nav-home:hover {
+    opacity: 1;
+}
+
+.photo-nav h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.photography-main {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Photography Gallery Styles */
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    aspect-ratio: 4/3;
+    background: #1e293b;
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: scale(1.02);
+}
+
+.photo-link {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.photo-overlay h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.photo-overlay p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .photo-item {
+        aspect-ratio: 16/9;
+    }
+    
+    .photo-overlay {
+        transform: translateY(0);
+        background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
+    }
+}

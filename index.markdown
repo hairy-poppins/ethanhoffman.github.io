@@ -10,6 +10,17 @@ title: Home
     <h2 style="text-align: center; font-size: 40px;"> My Work</h2>
 
     <div class="MyWorks">
+        <div class="work"> 
+            <img src="images\photography\img_3625.jpg">
+            <div class="description">
+                <h2> Photography Portfolio</h2>
+                <p> A display of some of the photos I have taken.</p>
+                <a href="photography.html" class="Button">
+                    Click Here
+                </a>
+            </div>
+        </div>
+        
         <div class="work">
             <img src="images\PublicMediaSS.PNG">
             <div class="description">

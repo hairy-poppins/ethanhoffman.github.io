@@ -10,43 +10,33 @@ title: Home
     <h2 style="text-align: center; font-size: 40px;"> My Work</h2>
 
     <div class="MyWorks">
+    <a href="photography.html">
         <div class="work"> 
-            <img src="images\photography\img_3625.jpg">
+            <img src="images\photography\img_3625.jpg" alt="Photography Portfolio">
             <div class="description">
-                <h2> Photography Portfolio</h2>
-                <p> A display of some of the photos I have taken.</p>
-                <a href="photography.html" class="Button">
-                    Click Here
-                </a>
+                <h2>Photography Portfolio</h2>
+                <p>A display of some of the photos I have taken.</p>
             </div>
         </div>
-        
+    </a>
+    
+    <a href="PublicMedia/">
         <div class="work">
-            <img src="images\PublicMediaSS.PNG">
+            <img src="images\PublicMediaSS.PNG" alt="Broadcast for All">
             <div class="description">
-                <h2> Broadcast for All</h2>
-                <p> Public Media Advocacy Campaign Website built for my AP US Government and Politics Final Project.</p>
-                <a href="PublicMedia/" class="Button">
-                    Click Here
-                </a>
+                <h2>Broadcast for All</h2>
+                <p>Public Media Advocacy Campaign Website built for my AP US Government and Politics Final Project.</p>
             </div>
         </div>
+    </a>
 
-        <div class="work"> 
-            <img src="images\DMRcalc.PNG">
-            <div class="description">
-                <h2> DMR Calculator</h2>
-                <p> A simple tool for calculating a relay time based on individual leg times.</p>
-                <a href="dmr.html" class="Button">
-                    Click Here
-                </a>
-            </div>
-        </div>
+    
+</div>
 
         
             
 
-    </div>
+    
     <script>
     if (window.netlifyIdentity) {
     window.netlifyIdentity.on("init", (user) => {

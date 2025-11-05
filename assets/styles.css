@@ -61,7 +61,8 @@ a:visited {
     color: white
 }
 a:hover {
-    font-weight: bold;
+    color: #63E6BE;
+    transition: transform 0.3s ease;
 }
 .socials {
   display: flex;
@@ -82,7 +83,7 @@ a:hover {
     margin: 50px auto;
     max-width: 700px;
     width: 100%;
-    height: 250px; /* Fixed height */
+    height: 280px; /* Fixed height */
     display: flex;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
